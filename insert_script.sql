@@ -1,6 +1,6 @@
--- ALTER SEQUENCE styles_id_seq RESTART WITH 1;  -- чтобы начать id с 1
+ALTER SEQUENCE styles_id_seq RESTART WITH 1;  -- чтобы начать id с 1
 
--- DELETE FROM styles; 
+DELETE FROM styles; 
 
 INSERT INTO styles(style_name)
 VALUES('rock');
@@ -72,6 +72,9 @@ VALUES('Name15 Soname15', 'Classic1');
 INSERT INTO author(author_name, nickname)
 VALUES('Name16 Soname16', 'Classic2');
 
+INSERT INTO author(author_name, nickname)
+VALUES('Рокер Рокеров', 'Рокер');
+
 UPDATE author
 SET author_name = 'Name3'
 WHERE id = 3;
@@ -82,6 +85,12 @@ WHERE id = 15;
 
 INSERT INTO styleauthor
 VALUES(1, 1);
+
+INSERT INTO styleauthor
+VALUES(2, 1);
+
+INSERT INTO styleauthor
+VALUES(3, 1);
 
 INSERT INTO styleauthor
 VALUES(1, 2);
@@ -96,6 +105,12 @@ INSERT INTO styleauthor
 VALUES(2, 5);
 
 INSERT INTO styleauthor
+VALUES(1, 5);
+
+INSERT INTO styleauthor
+VALUES(5, 5);
+
+INSERT INTO styleauthor
 VALUES(3, 6);
 
 INSERT INTO styleauthor
@@ -103,6 +118,9 @@ VALUES(3, 7);
 
 INSERT INTO styleauthor
 VALUES(3, 8);
+
+INSERT INTO styleauthor
+VALUES(5, 8);
 
 INSERT INTO styleauthor
 VALUES(4, 9);
@@ -127,6 +145,18 @@ VALUES(7, 15);
 
 INSERT INTO styleauthor
 VALUES(7, 16);
+
+INSERT INTO styleauthor 
+VALUES(1, 17)
+
+INSERT INTO styleauthor 
+VALUES(3, 17)
+
+INSERT INTO styleauthor 
+VALUES(5, 17)
+
+INSERT INTO styleauthor 
+VALUES(7, 17)
 
 INSERT INTO album
 VALUES(1, 'Super_Rock', current_date);
@@ -173,6 +203,10 @@ VALUES(14, 'Rap', '2015-10-15');
 INSERT INTO album
 VALUES(15, 'Суровый рэп', '2005-10-15');
 
+UPDATE album
+SET release_year = '2020-01-01'
+WHERE id = 15;
+
 INSERT INTO album
 VALUES(16, 'Metall metallica', '2017-10-15');
 
@@ -191,11 +225,21 @@ VALUES(20, 'My popular music', '2021-10-25');
 INSERT INTO album
 VALUES(21, 'Classic album', '1900-01-01');
 
+UPDATE album
+SET release_year = '2020-01-21'
+WHERE id = 21;
+
 INSERT INTO album
 VALUES(22, 'Classic album 2', '2019-01-01');
 
+INSERT INTO album
+VALUES(23, 'Рок, рок, рок!', '2020-10-10');
+
 INSERT INTO authoralbum 
 VALUES(1, 1);
+
+INSERT INTO authoralbum 
+VALUES(17, 1);
 
 INSERT INTO authoralbum 
 VALUES(1, 2);
@@ -261,11 +305,18 @@ VALUES(15, 21);
 INSERT INTO authoralbum 
 VALUES(16, 22);
 
+INSERT INTO authoralbum 
+VALUES(17, 23);
+
 INSERT INTO track
 VALUES(1, 'track1_rock.mp3', 1, '00:03:30', '2022-08-09');
 
 INSERT INTO track
 VALUES(2, 'track2_rock.mp3', 1, '00:02:30', '2022-08-09');
+
+UPDATE track
+SET length_track = '00:01:30'
+WHERE id = 2
 
 INSERT INTO track
 VALUES(3, 'track3_rock.mp3', 1, '00:04:30', '2022-08-09');
@@ -342,6 +393,10 @@ VALUES(26, 'rap2.mp3', 13, '00:03:30', '2015-10-15');
 INSERT INTO track
 VALUES(27, 'rap.mp3', 14, '00:03:20', '2015-10-15');
 
+UPDATE track
+SET length_track = '00:01:30'
+WHERE id = 27
+
 INSERT INTO track
 VALUES(28, 'rap2.mp3', 15, '00:03:30', '2015-10-15');
 
@@ -372,6 +427,10 @@ VALUES(36, 'track _pop2.mp3', 19, '00:03:30', '2019-05-15');
 INSERT INTO track
 VALUES(37, 'хит.mp3', 20, '00:03:20', '2021-10-10');
 
+UPDATE track
+SET length_track = '00:01:30'
+WHERE id = 37
+
 INSERT INTO track
 VALUES(38, 'хит2.mp3', 20, '00:03:30', '2021-10-10');
 
@@ -389,6 +448,18 @@ VALUES(43, 'классик3.mp3', 22, '00:10:30', '2019-01-01');
 
 INSERT INTO track
 VALUES(44, 'folk77.mp3', 10, '00:10:30', '2022-01-01');
+
+INSERT INTO track
+VALUES(45, 'роккк.mp3', 23, '00:07:30', '2011-01-01');
+
+INSERT INTO track
+VALUES(46, 'роккк2.mp3', 23, '00:05:30', '2011-01-01');
+
+INSERT INTO track
+VALUES(47, 'Rrrock.mp3', 1, '00:04:30', '2015-08-09');
+
+INSERT INTO track
+values(48, 'Осень', 5, '00:07:00', '1995-05-05');
 
 UPDATE track
 SET track_name = 'Мой рок-н-ролл'
@@ -419,88 +490,140 @@ SET track_name = 'мой'
 WHERE id = 17;
 
 INSERT INTO collection
-values(1, 'Рок коллекция', '2022-01-01')
+values(1, 'Рок коллекция', '2022-01-01');
 
 INSERT INTO collection
-values(2, 'Панк коллекция', '2022-01-01')
+values(2, 'Панк коллекция', '2022-01-01');
 
 INSERT INTO collection
-values(3, 'Панк рок коллекция', '2022-01-01')
+values(3, 'Панк рок коллекция', '2022-01-01');
 
 INSERT INTO collection 
-values(4, 'All hits', '2022-01-01')
+values(4, 'All hits', '2022-01-01');
 
 INSERT INTO collection
-values(5, 'Best folks', '2020-10-10')
+values(5, 'Best folks', '2020-10-10');
 
 INSERT INTO collection
-values(7, 'Best rap collection', '2019-10-10')
+values(7, 'Best rap collection', '2019-10-10');
 
 INSERT INTO collection
-values(8, 'Best classic', '2010-10-10')
+values(8, 'Best classic', '2010-10-10');
+
+INSERT INTO collection
+values(9, 'Top music in car', '2010-10-10');
+
 
 INSERT INTO collectiontrack 
-values(1, 1)
+values(1, 1);
 
 INSERT INTO collectiontrack 
-values(2, 1)
+values(2, 1);
 
 INSERT INTO collectiontrack 
-values(5, 1)
+values(5, 1);
 
 INSERT INTO collectiontrack 
-values(11, 2)
+values(11, 2);
 
 INSERT INTO collectiontrack 
-values(12, 2)
+values(12, 2);
 
 INSERT INTO collectiontrack 
-values(17, 2)
+values(17, 2);
 
 INSERT INTO collectiontrack 
-values(1, 3)
+values(1, 3);
 
 INSERT INTO collectiontrack 
-values(7, 3)
+values(7, 3);
 
 INSERT INTO collectiontrack 
-values(18, 3)
+values(18, 3);
 
 INSERT INTO collectiontrack 
-values(10, 4)
+values(10, 4);
 
 INSERT INTO collectiontrack 
-values(20, 4)
+values(20, 4);
 
 INSERT INTO collectiontrack 
-values(30, 4)
+values(30, 4);
 
 INSERT INTO collectiontrack 
-values(40, 4)
+values(40, 4);
 
 INSERT INTO collectiontrack
-values(20, 5)
+values(20, 5);
 
 INSERT INTO collectiontrack
-values(22, 5)
+values(22, 5);
 
 INSERT INTO collectiontrack
-values(24, 5)
+values(24, 5);
 
 INSERT INTO collectiontrack
-values(31, 6)
+values(31, 6);
 
 INSERT INTO collectiontrack
-values(33, 6)
+values(33, 6);
 
 INSERT INTO collectiontrack
-values(25, 7)
+values(25, 7);
 
 INSERT INTO collectiontrack
-values(29, 7)
+values(29, 7);
 
 INSERT INTO collectiontrack
-values(39, 8)
+values(39, 8);
 
 INSERT INTO collectiontrack
-values(42, 8)
+values(42, 8);
+
+INSERT INTO collectiontrack
+values(1, 9);
+
+INSERT INTO collectiontrack
+values(3, 9);
+
+INSERT INTO collectiontrack
+values(5, 9);
+
+INSERT INTO collectiontrack
+values(7, 9);
+
+INSERT INTO collectiontrack
+values(9, 9);
+
+INSERT INTO collectiontrack
+values(11, 9);
+
+INSERT INTO collectiontrack
+values(13, 9);
+
+INSERT INTO collectiontrack
+values(15, 9);
+
+INSERT INTO collectiontrack
+values(17, 9);
+
+INSERT INTO collectiontrack
+values(19, 9);
+
+INSERT INTO collectiontrack
+values(29, 9);
+
+INSERT INTO collectiontrack
+values(33, 9);
+
+INSERT INTO collectiontrack
+values(37, 9);
+
+INSERT INTO collectiontrack
+values(39, 9);
+
+INSERT INTO collectiontrack
+values(41, 9);
+
+INSERT INTO collectiontrack
+values(45, 9)
