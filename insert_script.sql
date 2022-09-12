@@ -1,6 +1,6 @@
-ALTER SEQUENCE styles_id_seq RESTART WITH 1;  -- чтобы начать id с 1
+-- ALTER SEQUENCE styles_id_seq RESTART WITH 1;  -- чтобы начать id с 1
 
-DELETE FROM styles; 
+-- DELETE FROM styles; 
 
 INSERT INTO styles(style_name)
 VALUES('rock');
